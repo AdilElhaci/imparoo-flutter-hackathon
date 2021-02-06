@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/core/models/Student.dart';
+import 'package:imparoo_hackathon/feature/components/background_container.dart';
+import 'package:imparoo_hackathon/feature/components/imparoo_image_container.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // ignore: must_be_immutable
@@ -81,14 +83,7 @@ class _StudentLoginState extends State<StudentLogin> {
         child: Container(
           child: Stack(
             children: [
-              Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                child: Image.asset(
-                  'assets/images/background.png',
-                  fit: BoxFit.fill,
-                ),
-              ),
+              BackgroundContainer(),
               Column(
                 children: [
                   Container(
@@ -101,13 +96,7 @@ class _StudentLoginState extends State<StudentLogin> {
                       ),
                     ),
                   ),
-                  Container(
-                      padding: EdgeInsets.only(top: 00),
-                      height: 40,
-                      width: 140,
-                      child: Image.asset(
-                        'assets/images/imparoo.png',
-                      )),
+                  ImparooContainer(),
                   Container(
                     padding: EdgeInsets.only(top: 20),
                     child: Center(
@@ -123,129 +112,139 @@ class _StudentLoginState extends State<StudentLogin> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        height: 160,
-                        padding: EdgeInsets.only(top: 60, left: 60, right: 60),
-                        child: Column(
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width,
-                              padding: EdgeInsets.only(
-                                  left: 15, right: 60, bottom: 10),
-                              child: Text(
-                                'Telefon Numarası',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.grey[200],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(30))),
-                              height: 60,
-                              child: TextField(
-                                controller: phoneText,
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                    contentPadding:
-                                        EdgeInsets.only(right: 10, left: 10)),
-                                onSubmitted: (value) {
-                                  setState(() {
-                                    phoneText.text = value;
-                                  });
-                                },
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 160,
-                        padding: EdgeInsets.only(top: 30, left: 60, right: 60),
-                        child: Column(
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width,
-                              padding: EdgeInsets.only(
-                                  left: 15, right: 60, bottom: 10),
-                              child: Text(
-                                'Şifre',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.grey[200],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(30))),
-                              height: 60,
-                              child: TextField(
-                                controller: passText,
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                    contentPadding:
-                                        EdgeInsets.only(right: 10, left: 10)),
-                                onSubmitted: (value) {
-                                  setState(() {
-                                    passText.text = value;
-                                  });
-                                },
-                              ),
-                            )
-                          ],
-                        ),
-                      )
+                      buildPhoneNumberField(context),
+                      buildPasswordField(context)
                     ],
                   ),
-                  FlatButton(
-                    onPressed: () {
-                      //loginControl(); //Ogrenci girisi
-                      //Navigator.push(context,MaterialPageRoute(builder: (_) => StudentLessons())); // Giris ile derslere yonlendirilecek
-                    },
-                    child: Container(
-                      height: 60,
-                      width: 180,
-                      child: Image.asset(
-                        'assets/images/girisbuton.png',
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  ),
+                  buildLoginButton(),
                   SizedBox(
                     height: 10,
                   ),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Container(
-                      color: Colors.transparent,
-                      height: 60,
-                      width: 180,
-                      child: Image.asset(
-                        'assets/images/geributon.png',
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  ),
+                  buildBackButton(context),
                 ],
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Container buildPhoneNumberField(BuildContext context) {
+    return Container(
+      height: 160,
+      padding: EdgeInsets.only(top: 60, left: 60, right: 60),
+      child: Column(
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width,
+            padding: EdgeInsets.only(left: 15, right: 60, bottom: 10),
+            child: Text(
+              'Telefon Numarası',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.all(Radius.circular(30))),
+            height: 60,
+            child: TextField(
+              controller: phoneText,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                  errorBorder: InputBorder.none,
+                  disabledBorder: InputBorder.none,
+                  contentPadding: EdgeInsets.only(right: 10, left: 10)),
+              onSubmitted: (value) {
+                setState(() {
+                  phoneText.text = value;
+                });
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Container buildPasswordField(BuildContext context) {
+    return Container(
+      height: 160,
+      padding: EdgeInsets.only(top: 30, left: 60, right: 60),
+      child: Column(
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width,
+            padding: EdgeInsets.only(left: 15, right: 60, bottom: 10),
+            child: Text(
+              'Şifre',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.all(Radius.circular(30))),
+            height: 60,
+            child: TextField(
+              controller: passText,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                  errorBorder: InputBorder.none,
+                  disabledBorder: InputBorder.none,
+                  contentPadding: EdgeInsets.only(right: 10, left: 10)),
+              onSubmitted: (value) {
+                setState(() {
+                  passText.text = value;
+                });
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  FlatButton buildLoginButton() {
+    return FlatButton(
+      onPressed: () {
+        //loginControl(); //Ogrenci girisi
+        //Navigator.push(context,MaterialPageRoute(builder: (_) => StudentLessons())); // Giris ile derslere yonlendirilecek
+      },
+      child: Container(
+        height: 60,
+        width: 180,
+        child: Image.asset(
+          'assets/images/girisbuton.png',
+          fit: BoxFit.fill,
+        ),
+      ),
+    );
+  }
+
+  FlatButton buildBackButton(BuildContext context) {
+    return FlatButton(
+      onPressed: () {
+        Navigator.pop(context);
+      },
+      child: Container(
+        color: Colors.transparent,
+        height: 60,
+        width: 180,
+        child: Image.asset(
+          'assets/images/geributon.png',
+          fit: BoxFit.fill,
         ),
       ),
     );

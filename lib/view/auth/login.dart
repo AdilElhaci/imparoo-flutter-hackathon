@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/core/models/Student.dart';
 import 'package:imparoo_hackathon/core/models/Teacher.dart';
 import 'package:imparoo_hackathon/feature/components/background_container.dart';
+import 'package:imparoo_hackathon/feature/components/imparoo_image_container.dart';
 
 class Login extends StatefulWidget {
   Login({Key key}) : super(key: key);
@@ -16,36 +17,6 @@ class _LoginState extends State<Login> {
   List<Teacher> teachers;
 
   final db = FirebaseFirestore.instance;
-
-  Future<void> getStudents() async {
-    await db.collection('student').get().then((QuerySnapshot querySnapshot) => {
-          querySnapshot.docs.forEach((doc) {
-            setState(() {
-              var item = Student(
-                  name: doc['name'].toString(),
-                  pass: doc['pass'].toString(),
-                  phone: doc['phone'].toString(),
-                  surname: doc['surname'].toString());
-              students?.insert(0, item);
-            });
-          }),
-        });
-  }
-
-  Future<void> getTeachers() async {
-    await db.collection('teacher').get().then((QuerySnapshot querySnapshot) => {
-          querySnapshot.docs.forEach((doc) {
-            setState(() {
-              var item = Teacher(
-                  name: doc['name'].toString(),
-                  pass: doc['pass'].toString(),
-                  phone: doc['phone'].toString(),
-                  surname: doc['surname'].toString());
-              teachers?.insert(0, item);
-            });
-          }),
-        });
-  }
 
   @override
   void initState() {
@@ -78,6 +49,36 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
+  }
+
+  Future<void> getStudents() async {
+    await db.collection('student').get().then((QuerySnapshot querySnapshot) => {
+          querySnapshot.docs.forEach((doc) {
+            setState(() {
+              var item = Student(
+                  name: doc['name'].toString(),
+                  pass: doc['pass'].toString(),
+                  phone: doc['phone'].toString(),
+                  surname: doc['surname'].toString());
+              students?.insert(0, item);
+            });
+          }),
+        });
+  }
+
+  Future<void> getTeachers() async {
+    await db.collection('teacher').get().then((QuerySnapshot querySnapshot) => {
+          querySnapshot.docs.forEach((doc) {
+            setState(() {
+              var item = Teacher(
+                  name: doc['name'].toString(),
+                  pass: doc['pass'].toString(),
+                  phone: doc['phone'].toString(),
+                  surname: doc['surname'].toString());
+              teachers?.insert(0, item);
+            });
+          }),
+        });
   }
 
   Positioned buildTeacherLoginButton() {
@@ -135,14 +136,7 @@ class _LoginState extends State<Login> {
             ),
           ),
         ),
-        Container(
-            padding: EdgeInsets.only(top: 00),
-            height: 80,
-            width: 280,
-            child: Image.asset(
-              'assets/images/imparoo.png',
-              fit: BoxFit.fill,
-            )),
+        ImparooContainer(),
       ],
     );
   }
