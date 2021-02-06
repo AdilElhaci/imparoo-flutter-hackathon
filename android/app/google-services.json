@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "279700796910",
+    "project_id": "imparoo-hackathon",
+    "storage_bucket": "imparoo-hackathon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279700796910:android:be022cb915906c67b30aff",
+        "android_client_info": {
+          "package_name": "com.mfk.imparoo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "279700796910-jmlr97v8pd84r56jmpga0t5tao6hqn92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQ0Xgg3ZKNA9W1MfusirXU7DJx9UYeVVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "279700796910-jmlr97v8pd84r56jmpga0t5tao6hqn92.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
