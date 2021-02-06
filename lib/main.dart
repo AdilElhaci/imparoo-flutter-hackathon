@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/view/auth/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'view/lesson/Student/student_lessons.dart';
+import 'view/lesson/student_lessons.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

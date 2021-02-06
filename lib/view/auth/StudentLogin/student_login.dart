@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/core/models/Student.dart';
 import 'package:imparoo_hackathon/core/components/background_container.dart';
 import 'package:imparoo_hackathon/core/components/imparoo_image_container.dart';
-import 'package:imparoo_hackathon/view/lesson/Student/student_lessons.dart';
+import 'package:imparoo_hackathon/view/lesson/student_lessons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // ignore: must_be_immutable

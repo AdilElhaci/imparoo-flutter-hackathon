@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:imparoo_hackathon/view/lesson/Student/student_lessons.dart';
-import 'package:imparoo_hackathon/view/lesson/Student/student_questions.dart';
+import 'package:imparoo_hackathon/view/lesson/student_lessons.dart';
+import 'package:imparoo_hackathon/view/questions/student_questions.dart';
 
 // ignore: must_be_immutable
 class MyNavBar extends StatefulWidget {

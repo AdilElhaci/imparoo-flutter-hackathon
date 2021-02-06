@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/core/components/background_container.dart';
 import 'package:imparoo_hackathon/view/auth/StudentLogin/student_login.dart';
-import 'package:imparoo_hackathon/view/lesson/Student/student_lessons.dart';
+import 'package:imparoo_hackathon/view/lesson/student_lessons.dart';
 
 class StudentProfile extends StatefulWidget {
   StudentProfile({Key key}) : super(key: key);

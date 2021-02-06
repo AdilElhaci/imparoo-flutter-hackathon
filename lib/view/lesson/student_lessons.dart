@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/core/components/bottom-nav-bar/my_bottom_navbar.dart';
 
-import 'student_profile.dart';
+import '../profile/student_profile.dart';
 
 class StudentLessons extends StatefulWidget {
   StudentLessons({Key key}) : super(key: key);
