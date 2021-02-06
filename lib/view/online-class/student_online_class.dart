@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/view/lesson/student_lessons.dart';
+import 'package:imparoo_hackathon/view/play-time/student_play_time.dart';
 
 class StudentOnlineClass extends StatefulWidget {
   StudentOnlineClass({Key key}) : super(key: key);
@@ -14,88 +15,90 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: buildAppBar(context),
-      body: Container(
-        padding: EdgeInsets.only(top: 30),
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(left: 20, right: 20),
-              height: 200,
-              width: MediaQuery.of(context).size.width,
+      body: buildOnlineClass(context),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: buildOnlinClassBottomNavBar(),
+    );
+  }
+
+  Container buildOnlineClass(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 30),
+      child: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(left: 20, right: 20),
+            height: 200,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+                color: Colors.grey[400],
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+          ),
+          MaterialButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => StudentPlayTime()));
+            },
+            child: Container(
+              margin: EdgeInsets.only(top: 10),
+              width: 114,
+              height: 44,
               decoration: BoxDecoration(
-                  color: Colors.grey[400],
+                  color: Colors.green[400],
                   borderRadius: BorderRadius.all(Radius.circular(10))),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (_) => null /* StudentPlayTime() */));
-              },
-              child: Container(
-                margin: EdgeInsets.only(top: 10),
-                width: 114,
-                height: 44,
-                decoration: BoxDecoration(
-                    color: Colors.green[400],
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: Center(
-                  child: Text(
-                    'Teneffüs',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                        fontSize: 20),
-                  ),
+              child: Center(
+                child: Text(
+                  'Teneffüs',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontSize: 20),
                 ),
               ),
             ),
-            Stack(
-              children: [
-                Container(
-                  child: Image.asset(
-                      'assets/images/imparo-sinif-siralar(1) 2.png'),
+          ),
+          Stack(
+            children: [
+              Container(
+                child:
+                    Image.asset('assets/images/imparo-sinif-siralar(1) 2.png'),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 64.0, left: 89),
+                child: Container(
+                  height: 87,
+                  width: 59,
+                  color: Colors.red,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 64.0, left: 89),
-                  child: Container(
-                    height: 87,
-                    width: 59,
-                    color: Colors.red,
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 64.0, left: 150),
+                child: Container(
+                  height: 87,
+                  width: 59,
+                  color: Colors.orange,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 64.0, left: 150),
-                  child: Container(
-                    height: 87,
-                    width: 59,
-                    color: Colors.orange,
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 154.0, left: 89),
+                child: Container(
+                  height: 87,
+                  width: 59,
+                  color: Colors.pink,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 154.0, left: 89),
-                  child: Container(
-                    height: 87,
-                    width: 59,
-                    color: Colors.pink,
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 154.0, left: 150),
+                child: Container(
+                  height: 87,
+                  width: 59,
+                  color: Colors.purple,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 154.0, left: 150),
-                  child: Container(
-                    height: 87,
-                    width: 59,
-                    color: Colors.purple,
-                  ),
-                ),
-              ],
-            )
-          ],
-        ),
+              ),
+            ],
+          )
+        ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: buildOnlinClassBottomNavBar(),
     );
   }
 

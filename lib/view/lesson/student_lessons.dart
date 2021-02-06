@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/core/components/bottom-nav-bar/my_bottom_navbar.dart';
+import 'package:imparoo_hackathon/view/online-class/student_online_class.dart';
 
 import '../profile/student_profile.dart';
 
@@ -148,10 +149,8 @@ class _StudentLessonsState extends State<StudentLessons> {
       children: [
         MaterialButton(
           onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (_) => null /* StudentOnlineClass() */));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (_) => StudentOnlineClass()));
           },
           child: Container(
             width: 114,
