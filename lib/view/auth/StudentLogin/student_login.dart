@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/core/models/Student.dart';
 import 'package:imparoo_hackathon/core/components/background_container.dart';
 import 'package:imparoo_hackathon/core/components/imparoo_image_container.dart';
+import 'package:imparoo_hackathon/view/lesson/Student/student_lessons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // ignore: must_be_immutable
@@ -220,7 +221,11 @@ class _StudentLoginState extends State<StudentLogin> {
     return FlatButton(
       onPressed: () {
         //loginControl(); //Ogrenci girisi
-        //Navigator.push(context,MaterialPageRoute(builder: (_) => StudentLessons())); // Giris ile derslere yonlendirilecek
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (_) =>
+                    StudentLessons())); // Giris ile derslere yonlendirilecek
       },
       child: Container(
         height: 60,

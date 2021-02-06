@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/view/lesson/Student/student_lessons.dart';
 import 'package:imparoo_hackathon/view/lesson/Student/student_questions.dart';
 
+// ignore: must_be_immutable
 class MyNavBar extends StatefulWidget {
   String button1, button2, button3, button4, button5;
   MyNavBar(
@@ -11,13 +12,25 @@ class MyNavBar extends StatefulWidget {
     String button4,
     String button5, {
     Key key,
-  }) : super(key: key);
+  }) {
+    this.button1 = button1;
+    this.button2 = button2;
+    this.button3 = button3;
+    this.button4 = button4;
+    this.button5 = button5;
+  }
 
   @override
   MyNavBarState createState() => MyNavBarState();
 }
 
 class MyNavBarState extends State<MyNavBar> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(

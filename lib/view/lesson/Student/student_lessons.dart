@@ -10,6 +10,11 @@ class StudentLessons extends StatefulWidget {
 
 class _StudentLessonsState extends State<StudentLessons> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,

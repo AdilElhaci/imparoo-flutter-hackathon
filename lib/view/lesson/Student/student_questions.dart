@@ -26,7 +26,9 @@ class _StudentQuestionsState extends State<StudentQuestions> {
                   fontWeight: FontWeight.w900),
             ),
           ),
-          buildQuestionCard(context),
+          buildQuestionCard(context, 'Matematik', 0, 0),
+          buildQuestionCard(context, 'Turkce', 0, 0),
+          buildQuestionCard(context, 'Fen Bilgisi', 0, 0),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -77,7 +79,8 @@ class _StudentQuestionsState extends State<StudentQuestions> {
     );
   }
 
-  Padding buildQuestionCard(BuildContext context) {
+  Padding buildQuestionCard(BuildContext context, String lessonName,
+      int counOfQuestions, int countOfAnswers) {
     return Padding(
       padding: EdgeInsets.only(top: 30, left: 20, right: 20),
       child: Stack(
@@ -97,7 +100,7 @@ class _StudentQuestionsState extends State<StudentQuestions> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8.0),
                     child: Text(
-                      'Matematik',
+                      lessonName,
                       style: TextStyle(
                           fontSize: 35,
                           color: Colors.black,
@@ -108,14 +111,14 @@ class _StudentQuestionsState extends State<StudentQuestions> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '0 Soru ',
+                        '${counOfQuestions.toString()} Soru ',
                         style: TextStyle(
                             fontSize: 13,
                             color: Colors.black,
                             fontWeight: FontWeight.w900),
                       ),
                       Text(
-                        '0 Cevap',
+                        '${countOfAnswers.toString()} Cevap',
                         style: TextStyle(
                             fontSize: 13,
                             color: Colors.black,
@@ -127,6 +130,7 @@ class _StudentQuestionsState extends State<StudentQuestions> {
               ),
               GestureDetector(
                 onTap: () {
+                  // burasi ders adina gore navigate olacaktir
                   Navigator.push(
                       context,
                       MaterialPageRoute(
