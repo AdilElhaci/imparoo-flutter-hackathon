@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/core/models/Teacher.dart';
-import 'package:imparoo_hackathon/feature/components/background_container.dart';
-import 'package:imparoo_hackathon/feature/components/imparoo_image_container.dart';
+import 'package:imparoo_hackathon/core/components/background_container.dart';
+import 'package:imparoo_hackathon/core/components/imparoo_image_container.dart';
 
 // ignore: must_be_immutable
 class TeacherLogin extends StatefulWidget {
