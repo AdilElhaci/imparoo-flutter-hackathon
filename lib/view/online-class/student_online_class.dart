@@ -1,4 +1,6 @@
+import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:flutter/material.dart';
+import 'package:imparoo_hackathon/feature/components/video_conference_container.dart';
 import 'package:imparoo_hackathon/view/lesson/student_lessons.dart';
 import 'package:imparoo_hackathon/view/play-time/student_play_time.dart';
 
@@ -10,6 +12,18 @@ class StudentOnlineClass extends StatefulWidget {
 }
 
 class _StudentOnlineClassState extends State<StudentOnlineClass> {
+  RtcEngine _engine;
+  bool muted = false;
+
+  @override
+  void dispose() {
+    // clear users
+    // destroy sdk
+    _engine.leaveChannel();
+    _engine.destroy();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +82,12 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
                 child: Container(
                   height: 87,
                   width: 59,
-                  color: Colors.red,
+                  color: Colors.orange,
+                  child: CallPage(
+                    channelName: 'aaa',
+                    role: ClientRole.Broadcaster,
+                    screenNo: 0,
+                  ),
                 ),
               ),
               Padding(
@@ -77,6 +96,11 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
                   height: 87,
                   width: 59,
                   color: Colors.orange,
+                  child: CallPage(
+                    channelName: 'aaa',
+                    role: ClientRole.Broadcaster,
+                    screenNo: 1,
+                  ),
                 ),
               ),
               Padding(
@@ -85,6 +109,11 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
                   height: 87,
                   width: 59,
                   color: Colors.pink,
+                  child: CallPage(
+                    channelName: 'aaa',
+                    role: ClientRole.Broadcaster,
+                    screenNo: 2,
+                  ),
                 ),
               ),
               Padding(
@@ -93,6 +122,11 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
                   height: 87,
                   width: 59,
                   color: Colors.purple,
+                  child: CallPage(
+                    channelName: 'aaa',
+                    role: ClientRole.Broadcaster,
+                    screenNo: 3,
+                  ),
                 ),
               ),
             ],
@@ -168,40 +202,48 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Column(
-              children: [
-                Container(
-                    height: 30,
-                    width: 30,
-                    child: Image.asset(
-                      'assets/images/mikrofon.png',
-                      fit: BoxFit.fill,
-                    )),
-                Text(
-                  'Mikrofon',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
-                )
-              ],
+          GestureDetector(
+            onTap: _onToggleMute,
+            child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Column(
+                children: [
+                  Container(
+                      height: 30,
+                      width: 30,
+                      child: muted
+                          ? Icon(Icons.mic_external_off)
+                          : Image.asset(
+                              'assets/images/mikrofon.png',
+                              fit: BoxFit.fill,
+                            )),
+                  Text(
+                    'Mikrofon',
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
+                  )
+                ],
+              ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Column(
-              children: [
-                Container(
-                    height: 30,
-                    width: 30,
-                    child: Image.asset(
-                      'assets/images/camera.png',
-                      fit: BoxFit.fill,
-                    )),
-                Text(
-                  'Kamera',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
-                )
-              ],
+          GestureDetector(
+            onTap: _onSwitchCamera,
+            child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Column(
+                children: [
+                  Container(
+                      height: 30,
+                      width: 30,
+                      child: Image.asset(
+                        'assets/images/camera.png',
+                        fit: BoxFit.fill,
+                      )),
+                  Text(
+                    'Kamera',
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
+                  )
+                ],
+              ),
             ),
           ),
           Padding(
@@ -225,5 +267,20 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
         ],
       ),
     );
+  }
+
+  void _onCallEnd(BuildContext context) {
+    Navigator.pop(context);
+  }
+
+  void _onToggleMute() {
+    setState(() {
+      muted = !muted;
+    });
+    _engine.muteLocalAudioStream(muted);
+  }
+
+  void _onSwitchCamera() {
+    _engine.switchCamera();
   }
 }

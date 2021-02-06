@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/core/components/bottom-nav-bar/my_bottom_navbar.dart';
 import 'package:imparoo_hackathon/view/online-class/student_online_class.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../profile/student_profile.dart';
 
@@ -148,7 +149,8 @@ class _StudentLessonsState extends State<StudentLessons> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         MaterialButton(
-          onPressed: () {
+          onPressed: () async {
+            await _handleCameraAndMic();
             Navigator.push(context,
                 MaterialPageRoute(builder: (_) => StudentOnlineClass()));
           },
@@ -170,6 +172,12 @@ class _StudentLessonsState extends State<StudentLessons> {
           ),
         ),
       ],
+    );
+  }
+
+  Future<void> _handleCameraAndMic() async {
+    await PermissionHandler().requestPermissions(
+      [PermissionGroup.camera, PermissionGroup.microphone],
     );
   }
 }
