@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:imparoo_hackathon/view/lesson/Student/student_lessons.dart';
+import 'package:imparoo_hackathon/view/lesson/Student/student_questions.dart';
 
 class MyNavBar extends StatefulWidget {
   String button1, button2, button3, button4, button5;
@@ -28,7 +30,10 @@ class MyNavBarState extends State<MyNavBar> {
       child: Row(
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => StudentLessons()));
+            },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -58,10 +63,8 @@ class MyNavBarState extends State<MyNavBar> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (_) => null /* StudentQuestions() */));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => StudentQuestions()));
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,

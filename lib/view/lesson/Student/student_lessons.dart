@@ -13,51 +13,7 @@ class _StudentLessonsState extends State<StudentLessons> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        toolbarHeight: 100,
-        backgroundColor: Colors.white,
-        elevation: 0,
-        flexibleSpace: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 28.0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => null /* StudentProfile() */));
-                  },
-                  child: Icon(
-                    Icons.person,
-                    size: 40,
-                    color: Colors.blue,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 24.0),
-                  child: Text(
-                    'DERSLER',
-                    style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w900),
-                  ),
-                ),
-                Icon(
-                  Icons.settings,
-                  size: 40,
-                  color: Colors.grey,
-                )
-              ],
-            ),
-          ),
-        ),
-        leading: Container(),
-      ),
+      appBar: buildAppBar(context),
       body: Container(
         padding: EdgeInsets.all(20),
         child: buildLessonCard(context),
@@ -69,6 +25,54 @@ class _StudentLessonsState extends State<StudentLessons> {
           'assets/images/sayfalar-buton-kayit 1.png',
           'assets/images/sayfalar-buton-odevler 1.png',
           'assets/images/sayfalar-buton-basarim 1.png'),
+    );
+  }
+
+  AppBar buildAppBar(BuildContext context) {
+    return AppBar(
+      toolbarHeight: 100,
+      backgroundColor: Colors.white,
+      elevation: 0,
+      flexibleSpace: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 28.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => null /* StudentProfile() */));
+                },
+                child: Icon(
+                  Icons.person,
+                  size: 40,
+                  color: Colors.blue,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 24.0),
+                child: Text(
+                  'DERSLER',
+                  style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900),
+                ),
+              ),
+              Icon(
+                Icons.settings,
+                size: 40,
+                color: Colors.grey,
+              )
+            ],
+          ),
+        ),
+      ),
+      leading: Container(),
     );
   }
 
