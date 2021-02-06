@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imparoo_hackathon/view/lesson-records/student_recorded_lessons.dart';
 import 'package:imparoo_hackathon/view/lesson/student_lessons.dart';
 import 'package:imparoo_hackathon/view/questions/student_questions.dart';
 
@@ -108,10 +109,8 @@ class MyNavBarState extends State<MyNavBar> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (_) => null /* StudentRecordedLesson() */));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => StudentRecordedLesson()));
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
