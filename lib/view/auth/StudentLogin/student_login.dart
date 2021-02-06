@@ -19,6 +19,60 @@ class _StudentLoginState extends State<StudentLogin> {
   TextEditingController phoneText = TextEditingController();
   TextEditingController passText = TextEditingController();
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Container(
+          child: Stack(
+            children: [
+              BackgroundContainer(),
+              Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(top: 70, bottom: 20),
+                    child: Center(
+                      child: Text(
+                        'HOŞGELDİN',
+                        style: TextStyle(
+                            fontSize: 35, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  ImparooContainer(),
+                  Container(
+                    padding: EdgeInsets.only(top: 20),
+                    child: Center(
+                      child: Text(
+                        'Öğrenci Girişi',
+                        style: TextStyle(
+                            fontSize: 35,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue.shade900),
+                      ),
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      buildPhoneNumberField(context),
+                      buildPasswordField(context)
+                    ],
+                  ),
+                  buildLoginButton(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  buildBackButton(context),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   // ignore: always_declare_return_types
   loginControl() async {
     var prefs = await SharedPreferences.getInstance();
@@ -73,60 +127,6 @@ class _StudentLoginState extends State<StudentLogin> {
           child: alert,
         );
       },
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          child: Stack(
-            children: [
-              BackgroundContainer(),
-              Column(
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(top: 70, bottom: 20),
-                    child: Center(
-                      child: Text(
-                        'HOŞGELDİN',
-                        style: TextStyle(
-                            fontSize: 35, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                  ImparooContainer(),
-                  Container(
-                    padding: EdgeInsets.only(top: 20),
-                    child: Center(
-                      child: Text(
-                        'Öğrenci Girişi',
-                        style: TextStyle(
-                            fontSize: 35,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue.shade900),
-                      ),
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      buildPhoneNumberField(context),
-                      buildPasswordField(context)
-                    ],
-                  ),
-                  buildLoginButton(),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  buildBackButton(context),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 

@@ -5,6 +5,8 @@ import 'package:imparoo_hackathon/core/models/Teacher.dart';
 import 'package:imparoo_hackathon/feature/components/background_container.dart';
 import 'package:imparoo_hackathon/feature/components/imparoo_image_container.dart';
 
+import 'StudentLogin/student_login.dart';
+
 class Login extends StatefulWidget {
   Login({Key key}) : super(key: key);
 
@@ -110,7 +112,11 @@ class _LoginState extends State<Login> {
       right: 30,
       child: FlatButton(
         onPressed: () {
-          //Navigator.push( context,MaterialPageRoute(builder: (_) => StudentLogin(students)));// Ogrenci giris ekranina yonlendirilicek
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (_) => StudentLogin(
+                      students))); // Ogrenci giris ekranina yonlendirilicek
         },
         child: Container(
           height: 60,
