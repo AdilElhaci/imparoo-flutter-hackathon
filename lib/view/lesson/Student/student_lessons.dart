@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/core/components/bottom-nav-bar/my_bottom_navbar.dart';
 
+import 'student_profile.dart';
+
 class StudentLessons extends StatefulWidget {
   StudentLessons({Key key}) : super(key: key);
 
@@ -47,10 +49,8 @@ class _StudentLessonsState extends State<StudentLessons> {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => null /* StudentProfile() */));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => StudentProfile()));
                 },
                 child: Icon(
                   Icons.person,
