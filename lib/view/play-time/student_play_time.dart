@@ -16,6 +16,7 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
   double rightMargin = 0;
   double upMargin = 200;
   double downMargin = 0;
+  bool theyMatched = false;
 
   @override
   Widget build(BuildContext context) {
@@ -141,14 +142,16 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
               margin: EdgeInsets.only(left: 10),
               height: 100,
               width: 70,
-              color: Colors.red,
-              child: (upMargin >= 300 && leftMargin >= 270)
+              color: theyMatched ? Colors.green : Colors.transparent,
+              child: theyMatched
                   ? CallPage(
                       channelName: 'aaa',
                       role: ClientRole.Broadcaster,
                       screenNo: 1,
                     )
-                  : Container(),
+                  : Container(
+                      color: Colors.transparent,
+                    ),
             ),
           ],
         ),
@@ -160,7 +163,14 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    if (upMargin >= 200) upMargin -= 10;
+                    if (upMargin >= 200) {
+                      upMargin -= 10;
+                      if (upMargin == 300 && leftMargin >= 270) {
+                        theyMatched = true;
+                      } else {
+                        theyMatched = false;
+                      }
+                    }
                   });
                   print('Upmargin => $upMargin ');
                 },
@@ -181,7 +191,14 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        if (leftMargin >= 10) leftMargin -= 10;
+                        if (leftMargin >= 10) {
+                          leftMargin -= 10;
+                          if (upMargin == 300 && leftMargin >= 270) {
+                            theyMatched = true;
+                          } else {
+                            theyMatched = false;
+                          }
+                        }
                       });
                       print('Leftmargin => $leftMargin ');
                     },
@@ -205,6 +222,11 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
                         if (MediaQuery.of(context).size.width - 45 >
                             leftMargin) {
                           leftMargin += 10;
+                          if (upMargin == 300 && leftMargin >= 270) {
+                            theyMatched = true;
+                          } else {
+                            theyMatched = false;
+                          }
                         }
                       });
                       print('Leftmargin => $leftMargin ');
@@ -225,7 +247,14 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    if (upMargin < 400) upMargin += 10;
+                    if (upMargin < 400) {
+                      upMargin += 10;
+                      if (upMargin == 300 && leftMargin >= 270) {
+                        theyMatched = true;
+                      } else {
+                        theyMatched = false;
+                      }
+                    }
                   });
                   print('Upmargin => $upMargin ');
                 },

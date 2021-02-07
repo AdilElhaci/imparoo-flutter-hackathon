@@ -128,6 +128,8 @@ class _CallPageState extends State<CallPage> {
 
   /// Video view wrapper
   Widget _videoView(view) {
+    final views = _getRenderViews();
+    print('KAC KISI VAR ============== > ${views.length} ');
     return Expanded(child: Container(child: view));
   }
 
@@ -145,11 +147,18 @@ class _CallPageState extends State<CallPage> {
   /// Video layout wrapper
   Widget _viewRows() {
     final views = _getRenderViews();
+    var listOfVideo = [];
+    for (var i = 0; i < views.length; i++) {
+      if (views[i] != null) {
+        listOfVideo.add(views[i]);
+      }
+    }
+    var index = 0;
     // ignore: null_aware_before_operator
     return (views?.length > widget.screenNo)
         ? Container(
             child: Column(
-            children: <Widget>[_videoView(views[widget.screenNo])],
+            children: <Widget>[_videoView(listOfVideo[widget.screenNo])],
           ))
         : Container();
   }
@@ -160,7 +169,7 @@ class _CallPageState extends State<CallPage> {
     if (widget.role == ClientRole.Audience) return Container();
 
     // ignore: null_aware_before_operator
-    if (views?.length > widget.screenNo) {
+    if (widget.screenNo == 0) {
       return Container(
         alignment: Alignment.bottomCenter,
         padding: const EdgeInsets.symmetric(vertical: 5),
