@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/core/components/bottom-nav-bar/my_bottom_navbar.dart';
+import 'package:imparoo_hackathon/core/constants/button_images.dart';
 import 'package:imparoo_hackathon/view/profile/student_profile.dart';
 
 class StudentLessonRecords extends StatefulWidget {
@@ -37,11 +38,11 @@ class _StudentLessonRecordsState extends State<StudentLessonRecords> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: MyNavBar(
-          'assets/images/sayfalar-buton-dersler 1.png',
-          'assets/images/sayfalar-buton-sorular-1.png',
-          'assets/images/sayfalar-buton-kayit-2 1.png',
-          'assets/images/sayfalar-buton-odevler 1.png',
-          'assets/images/sayfalar-buton-basarim 1.png'),
+          ButtonImages.DERSLERBUTTON,
+          ButtonImages.SORULARBUTTON,
+          ButtonImages.KAYITBUTTONCLICKED,
+          ButtonImages.ODEVLERBUTTON,
+          ButtonImages.BASARIMBUTTON),
     );
   }
 

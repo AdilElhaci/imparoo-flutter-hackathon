@@ -4,6 +4,7 @@ import 'package:imparoo_hackathon/core/models/Student.dart';
 import 'package:imparoo_hackathon/core/models/Teacher.dart';
 import 'package:imparoo_hackathon/core/components/background_container.dart';
 import 'package:imparoo_hackathon/core/components/imparoo_image_container.dart';
+import 'package:imparoo_hackathon/core/widget/login_flat_button/login_flat_button.dart';
 
 import 'StudentLogin/student_login.dart';
 
@@ -85,49 +86,22 @@ class _LoginState extends State<Login> {
 
   Positioned buildTeacherLoginButton() {
     return Positioned(
-      bottom: 140,
-      left: 30,
-      right: 30,
-      child: FlatButton(
-        onPressed: () {
-          // Navigator.push( context,MaterialPageRoute( builder: (_) => TeacherLogin(teachers))); // Ogretmen giris ekranina yonlendirilecek
-        },
-        child: Container(
-          color: Colors.transparent,
-          height: 60,
-          width: 180,
-          child: Image.asset(
-            'assets/images/ogretmenGirisButon.png',
-            fit: BoxFit.fill,
-          ),
-        ),
-      ),
-    );
+        bottom: 140,
+        left: 30,
+        right: 30,
+        child:
+            LoginFlatButton(iconUrl: 'assets/images/ogretmenGirisButon.png'));
   }
 
   Positioned buildStudentLoginButton() {
     return Positioned(
-      bottom: 230,
-      left: 30,
-      right: 30,
-      child: FlatButton(
-        onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (_) => StudentLogin(
-                      students))); // Ogrenci giris ekranina yonlendirilicek
-        },
-        child: Container(
-          height: 60,
-          width: 180,
-          child: Image.asset(
-            'assets/images/ogrenciGirisButon.png',
-            fit: BoxFit.fill,
-          ),
-        ),
-      ),
-    );
+        bottom: 230,
+        left: 30,
+        right: 30,
+        child: LoginFlatButton(
+          iconUrl: 'assets/images/ogrenciGirisButon.png',
+          students: students,
+        ));
   }
 
   Column buildLoginView() {
