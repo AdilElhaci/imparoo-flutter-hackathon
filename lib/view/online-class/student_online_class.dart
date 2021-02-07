@@ -83,7 +83,7 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
                   width: 59,
                   color: Colors.orange,
                   child: CallPage(
-                    channelName: 'aaa',
+                    channelName: 'test',
                     role: ClientRole.Broadcaster,
                     screenNo: 0,
                   ),
@@ -96,7 +96,7 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
                   width: 59,
                   color: Colors.orange,
                   child: CallPage(
-                    channelName: 'aaa',
+                    channelName: 'test',
                     role: ClientRole.Broadcaster,
                     screenNo: 1,
                   ),
@@ -109,7 +109,7 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
                   width: 59,
                   color: Colors.pink,
                   child: CallPage(
-                    channelName: 'aaa',
+                    channelName: 'test',
                     role: ClientRole.Broadcaster,
                     screenNo: 2,
                   ),
@@ -122,7 +122,7 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
                   width: 59,
                   color: Colors.purple,
                   child: CallPage(
-                    channelName: 'aaa',
+                    channelName: 'test',
                     role: ClientRole.Broadcaster,
                     screenNo: 3,
                   ),
