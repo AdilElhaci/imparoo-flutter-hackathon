@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:imparoo_hackathon/core/constants/button_images.dart';
 import 'package:imparoo_hackathon/core/models/Student.dart';
 import 'package:imparoo_hackathon/core/models/Teacher.dart';
 import 'package:imparoo_hackathon/core/components/background_container.dart';
@@ -87,8 +88,7 @@ class _LoginState extends State<Login> {
         bottom: 140,
         left: 30,
         right: 30,
-        child:
-            LoginFlatButton(iconUrl: 'assets/images/ogretmenGirisButon.png'));
+        child: LoginFlatButton(iconUrl: ButtonImages.OGRETMENGIRISBUTTON));
   }
 
   Positioned buildStudentLoginButton() {
@@ -97,7 +97,7 @@ class _LoginState extends State<Login> {
         left: 30,
         right: 30,
         child: LoginFlatButton(
-          iconUrl: 'assets/images/ogrenciGirisButon.png',
+          iconUrl: ButtonImages.OGRENCIGIRISBUTTON,
           students: students,
         ));
   }

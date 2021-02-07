@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:imparoo_hackathon/core/constants/button_images.dart';
 import 'package:imparoo_hackathon/core/models/Student.dart';
 import 'package:imparoo_hackathon/core/components/background_container.dart';
 import 'package:imparoo_hackathon/core/components/imparoo_image_container.dart';
@@ -60,11 +61,11 @@ class _StudentLoginState extends State<StudentLogin> {
                       buildPasswordField(context)
                     ],
                   ),
-                  StudentLoginButton(iconUrl: 'assets/images/girisbuton.png'),
+                  StudentLoginButton(iconUrl: ButtonImages.GIRISBUTTON),
                   SizedBox(
                     height: 10,
                   ),
-                  StudentLoginButton(iconUrl: 'assets/images/geributon.png'),
+                  StudentLoginButton(iconUrl: ButtonImages.GERIBUTTON),
                 ],
               ),
             ],

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:imparoo_hackathon/core/constants/button_images.dart';
 import 'package:imparoo_hackathon/core/models/Teacher.dart';
 import 'package:imparoo_hackathon/core/components/background_container.dart';
 import 'package:imparoo_hackathon/core/components/imparoo_image_container.dart';
@@ -130,7 +131,7 @@ class _TeacherLoginState extends State<TeacherLogin> {
         height: 60,
         width: 180,
         child: Image.asset(
-          'assets/images/geributon.png',
+          ButtonImages.GERIBUTTON,
           fit: BoxFit.fill,
         ),
       ),
@@ -146,7 +147,7 @@ class _TeacherLoginState extends State<TeacherLogin> {
         height: 60,
         width: 180,
         child: Image.asset(
-          'assets/images/girisbuton.png',
+          ButtonImages.GIRISBUTTON,
           fit: BoxFit.fill,
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:flutter/material.dart';
+import 'package:imparoo_hackathon/core/constants/images_links.dart';
 import 'package:imparoo_hackathon/feature/components/video_conference_container.dart';
 import 'package:imparoo_hackathon/view/online-class/student_online_class.dart';
 
@@ -11,7 +12,6 @@ class StudentPlayTime extends StatefulWidget {
 }
 
 class _StudentPlayTimeState extends State<StudentPlayTime> {
-  String playTimeOn = 'assets/images/playtimeground.png';
   double leftMargin = 10;
   double rightMargin = 0;
   double upMargin = 200;
@@ -37,7 +37,7 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             child: Image.asset(
-              playTimeOn,
+              ImageGetir.PLAYTIMEGROUND,
               fit: BoxFit.fill,
             ),
           ),
@@ -50,7 +50,7 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
             height: 150,
             width: 46,
             child: Image.asset(
-              'assets/images/student_girl.png',
+              ImageGetir.STUDENTGIRL,
               fit: BoxFit.fill,
             ),
           ),
@@ -63,7 +63,7 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
             height: 150,
             width: 46,
             child: Image.asset(
-              'assets/images/student_boy.png',
+              ImageGetir.STUDENTBOY,
               fit: BoxFit.fill,
             ),
           ),

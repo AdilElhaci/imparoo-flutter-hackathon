@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/core/components/background_container.dart';
 import 'package:imparoo_hackathon/view/auth/StudentLogin/student_login.dart';
 import 'package:imparoo_hackathon/view/lesson/student_lessons.dart';
+import 'package:imparoo_hackathon/core/constants/images_links.dart';
 
 class StudentProfile extends StatefulWidget {
   StudentProfile({Key key}) : super(key: key);
@@ -43,7 +44,7 @@ class _StudentProfileState extends State<StudentProfile> {
           height: 130,
           width: 130,
           child: Image.asset(
-            'assets/images/avatar.png',
+            ImageGetir.AVATARIMAGE,
             fit: BoxFit.fill,
           ),
         ),

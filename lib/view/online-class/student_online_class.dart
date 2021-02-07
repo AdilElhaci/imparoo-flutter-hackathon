@@ -1,5 +1,6 @@
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:flutter/material.dart';
+import 'package:imparoo_hackathon/core/constants/images_links.dart';
 import 'package:imparoo_hackathon/feature/components/video_conference_container.dart';
 import 'package:imparoo_hackathon/view/play-time/student_play_time.dart';
 
@@ -73,8 +74,7 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
           Stack(
             children: [
               Container(
-                child:
-                    Image.asset('assets/images/imparo-sinif-siralar(1) 2.png'),
+                child: Image.asset(ImageGetir.IMPORASINIFSIRALAR),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 64.0, left: 89),
@@ -190,7 +190,7 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
                     height: 30,
                     width: 30,
                     child: Image.asset(
-                      'assets/images/emoji-el 1.png',
+                      ImageGetir.EMOJIEL,
                       fit: BoxFit.fill,
                     )),
                 Text(
@@ -212,7 +212,7 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
                       child: muted
                           ? Icon(Icons.mic_external_off)
                           : Image.asset(
-                              'assets/images/mikrofon.png',
+                              ImageGetir.MIKROFON,
                               fit: BoxFit.fill,
                             )),
                   Text(
@@ -233,7 +233,7 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
                       height: 30,
                       width: 30,
                       child: Image.asset(
-                        'assets/images/camera.png',
+                        ImageGetir.CAMERAA,
                         fit: BoxFit.fill,
                       )),
                   Text(
@@ -252,7 +252,7 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
                     height: 30,
                     width: 30,
                     child: Image.asset(
-                      'assets/images/emoji-gulme 1.png',
+                      ImageGetir.EMOJIGULME,
                       fit: BoxFit.fill,
                     )),
                 Text(
