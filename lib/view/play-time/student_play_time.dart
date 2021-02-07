@@ -133,7 +133,7 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
               width: 70,
               color: Colors.orange,
               child: CallPage(
-                channelName: 'aaa',
+                channelName: 'test',
                 role: ClientRole.Broadcaster,
                 screenNo: 0,
               ),
@@ -145,7 +145,7 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
               color: theyMatched ? Colors.green : Colors.transparent,
               child: theyMatched
                   ? CallPage(
-                      channelName: 'aaa',
+                      channelName: 'test',
                       role: ClientRole.Broadcaster,
                       screenNo: 1,
                     )
