@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/core/models/Student.dart';
 import 'package:imparoo_hackathon/core/components/background_container.dart';
 import 'package:imparoo_hackathon/core/components/imparoo_image_container.dart';
+import 'package:imparoo_hackathon/core/widget/login_flat_button/student_flat_button.dart';
 import 'package:imparoo_hackathon/view/lesson/student_lessons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -60,11 +61,11 @@ class _StudentLoginState extends State<StudentLogin> {
                       buildPasswordField(context)
                     ],
                   ),
-                  buildLoginButton(),
+                  StudentLoginButton(iconUrl: 'assets/images/girisbuton.png'),
                   SizedBox(
                     height: 10,
                   ),
-                  buildBackButton(context),
+                  StudentLoginButton(iconUrl: 'assets/images/geributon.png'),
                 ],
               ),
             ],
@@ -213,44 +214,6 @@ class _StudentLoginState extends State<StudentLogin> {
             ),
           )
         ],
-      ),
-    );
-  }
-
-  FlatButton buildLoginButton() {
-    return FlatButton(
-      onPressed: () {
-        //loginControl(); //Ogrenci girisi
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (_) =>
-                    StudentLessons())); // Giris ile derslere yonlendirilecek
-      },
-      child: Container(
-        height: 60,
-        width: 180,
-        child: Image.asset(
-          'assets/images/girisbuton.png',
-          fit: BoxFit.fill,
-        ),
-      ),
-    );
-  }
-
-  FlatButton buildBackButton(BuildContext context) {
-    return FlatButton(
-      onPressed: () {
-        Navigator.pop(context);
-      },
-      child: Container(
-        color: Colors.transparent,
-        height: 60,
-        width: 180,
-        child: Image.asset(
-          'assets/images/geributon.png',
-          fit: BoxFit.fill,
-        ),
       ),
     );
   }
