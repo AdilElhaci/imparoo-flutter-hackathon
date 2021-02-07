@@ -39,7 +39,7 @@ class _StudentQuestionsOfLessonState extends State<StudentQuestionsOfLesson> {
               child: Text(
                 'MATEMATİK',
                 style: TextStyle(
-                    fontSize: 34,
+                    fontSize: 25,
                     color: Colors.black,
                     fontWeight: FontWeight.w900),
               ),
@@ -53,7 +53,7 @@ class _StudentQuestionsOfLessonState extends State<StudentQuestionsOfLesson> {
               child: Text(
                 'SORULARI',
                 style: TextStyle(
-                    fontSize: 34,
+                    fontSize: 25,
                     color: Colors.black,
                     fontWeight: FontWeight.w900),
               ),
