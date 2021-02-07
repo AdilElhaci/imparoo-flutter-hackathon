@@ -150,8 +150,7 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => StudentLessons()));
+                  _onCallEnd(context);
                 },
                 child: Icon(
                   Icons.exit_to_app,
