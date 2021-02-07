@@ -1,7 +1,6 @@
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:flutter/material.dart';
 import 'package:imparoo_hackathon/feature/components/video_conference_container.dart';
-import 'package:imparoo_hackathon/view/lesson/student_lessons.dart';
 import 'package:imparoo_hackathon/view/play-time/student_play_time.dart';
 
 class StudentOnlineClass extends StatefulWidget {

@@ -1,10 +1,7 @@
-import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:flutter/material.dart';
-import 'package:imparoo_hackathon/feature/components/video_conference_container.dart';
 import 'package:imparoo_hackathon/view/lesson-records/student_recorded_lessons.dart';
 import 'package:imparoo_hackathon/view/lesson/student_lessons.dart';
 import 'package:imparoo_hackathon/view/questions/student_questions.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 // ignore: must_be_immutable
 class MyNavBar extends StatefulWidget {

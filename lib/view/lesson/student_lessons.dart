@@ -152,7 +152,7 @@ class _StudentLessonsState extends State<StudentLessons> {
         MaterialButton(
           onPressed: () async {
             await _handleCameraAndMic();
-            Navigator.push(context,
+            await Navigator.push(context,
                 MaterialPageRoute(builder: (_) => StudentOnlineClass()));
           },
           child: Container(

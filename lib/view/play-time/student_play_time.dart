@@ -1,4 +1,6 @@
+import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:flutter/material.dart';
+import 'package:imparoo_hackathon/feature/components/video_conference_container.dart';
 import 'package:imparoo_hackathon/view/online-class/student_online_class.dart';
 
 class StudentPlayTime extends StatefulWidget {
@@ -48,6 +50,19 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
             width: 46,
             child: Image.asset(
               'assets/images/student_girl.png',
+              fit: BoxFit.fill,
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+                top: 300,
+                left: MediaQuery.of(context).size.width - 45,
+                right: 0,
+                bottom: 200),
+            height: 150,
+            width: 46,
+            child: Image.asset(
+              'assets/images/student_boy.png',
               fit: BoxFit.fill,
             ),
           ),
@@ -116,12 +131,24 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
               height: 100,
               width: 70,
               color: Colors.orange,
+              child: CallPage(
+                channelName: 'aaa',
+                role: ClientRole.Broadcaster,
+                screenNo: 0,
+              ),
             ),
             Container(
               margin: EdgeInsets.only(left: 10),
               height: 100,
               width: 70,
               color: Colors.red,
+              child: (upMargin >= 300 && leftMargin >= 270)
+                  ? CallPage(
+                      channelName: 'aaa',
+                      role: ClientRole.Broadcaster,
+                      screenNo: 1,
+                    )
+                  : Container(),
             ),
           ],
         ),
@@ -135,6 +162,7 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
                   setState(() {
                     if (upMargin >= 200) upMargin -= 10;
                   });
+                  print('Upmargin => $upMargin ');
                 },
                 child: Container(
                   height: 40,
@@ -155,6 +183,7 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
                       setState(() {
                         if (leftMargin >= 10) leftMargin -= 10;
                       });
+                      print('Leftmargin => $leftMargin ');
                     },
                     child: Container(
                       height: 40,
@@ -173,8 +202,12 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        leftMargin += 10;
+                        if (MediaQuery.of(context).size.width - 45 >
+                            leftMargin) {
+                          leftMargin += 10;
+                        }
                       });
+                      print('Leftmargin => $leftMargin ');
                     },
                     child: Container(
                       height: 40,
@@ -194,6 +227,7 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
                   setState(() {
                     if (upMargin < 400) upMargin += 10;
                   });
+                  print('Upmargin => $upMargin ');
                 },
                 child: Container(
                   height: 40,

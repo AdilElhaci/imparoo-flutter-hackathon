@@ -132,6 +132,7 @@ class _CallPageState extends State<CallPage> {
   }
 
   /// Video view row wrapper
+  // ignore: unused_element
   Widget _expandedVideoRow(List<Widget> views) {
     final wrappedViews = views.map<Widget>(_videoView).toList();
     return Expanded(
@@ -144,7 +145,7 @@ class _CallPageState extends State<CallPage> {
   /// Video layout wrapper
   Widget _viewRows() {
     final views = _getRenderViews();
-    print('VIEW LENGHT ----------- -------------------- ${views?.length} ');
+    // ignore: null_aware_before_operator
     return (views?.length > widget.screenNo)
         ? Container(
             child: Column(
@@ -158,6 +159,7 @@ class _CallPageState extends State<CallPage> {
     final views = _getRenderViews();
     if (widget.role == ClientRole.Audience) return Container();
 
+    // ignore: null_aware_before_operator
     if (views?.length > widget.screenNo) {
       return Container(
         alignment: Alignment.bottomCenter,

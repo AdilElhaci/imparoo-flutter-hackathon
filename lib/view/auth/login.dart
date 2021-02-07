@@ -6,8 +6,6 @@ import 'package:imparoo_hackathon/core/components/background_container.dart';
 import 'package:imparoo_hackathon/core/components/imparoo_image_container.dart';
 import 'package:imparoo_hackathon/core/widget/login_flat_button/login_flat_button.dart';
 
-import 'StudentLogin/student_login.dart';
-
 class Login extends StatefulWidget {
   Login({Key key}) : super(key: key);
 
